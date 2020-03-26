@@ -55,9 +55,10 @@ function init() {
 
         var meta = NewData.metadata
 
-        var output = d3.select(".output");
+        var output = d3.select("#output");
         Object.entries(meta[0]).forEach(([key, value]) => {
             var li = output.append("li").text(`${key}: ${value}`);
+            d3.selectAll("li").classed("list-group-item", true);
         });
 
     });
@@ -77,10 +78,11 @@ function optionChanged(newOption) {
         };
         var metadata = meta.filter(filteredMeta);
 
-        var output = d3.select(".output");
+        var output = d3.select("#output");
         output.html("");
         Object.entries(metadata[0]).forEach(([key, value]) => {
             var li = output.append("li").text(`${key}: ${value}`);
+        d3.selectAll("li").classed("list-group-item", true);
         });
 
     });
